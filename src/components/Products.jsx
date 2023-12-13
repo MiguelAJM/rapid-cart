@@ -1,52 +1,29 @@
-/* eslint-disable multiline-ternary */
-import {
-  IconShoppingCartPlus,
-  IconShoppingCartMinus
-} from '@tabler/icons-react'
+import { useFilter } from '../context/FilterProvider'
+import { Link } from 'react-router-dom'
 
-export default function Products({
-  checkIsProductCart,
-  products,
-  deleteToCart,
-  addToCart
-}) {
+export default function Products() {
+  const { productsCart } = useFilter()
+
   return (
     <main>
       <h2>Products</h2>
 
       <ul>
-        {products.map((product) => {
-          const isProductInCart = checkIsProductCart(product)
+        {productsCart.map((product) => {
           return (
             <li className='mb-8' key={product.id}>
-              <img src={product.thumbnail} alt={product.name} />
+              <Link to={`article/${product.id}`}>
+                <img src={product.thumbnail} alt={product.name} />
 
-              <div>
-                <strong>{product.title}</strong>
-                <p>{product.price}</p>
-              </div>
+                <div>
+                  <strong>{product.title}</strong>
+                  <p>${product.price}</p>
+                </div>
 
-              <div>
-                <p>{product.category}</p>
-              </div>
-
-              <button
-                onClick={
-                  isProductInCart
-                    ? () => {
-                        deleteToCart(product)
-                      }
-                    : () => {
-                        addToCart(product)
-                      }
-                }
-              >
-                {isProductInCart ? (
-                  <IconShoppingCartMinus size={32} />
-                ) : (
-                  <IconShoppingCartPlus size={32} />
-                )}
-              </button>
+                <div>
+                  <p>{product.category}</p>
+                </div>
+              </Link>
             </li>
           )
         })}

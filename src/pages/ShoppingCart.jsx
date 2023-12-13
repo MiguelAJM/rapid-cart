@@ -1,15 +1,17 @@
 import { IconShoppingCartOff } from '@tabler/icons-react'
 import { useCart } from '../context/CartProvider'
-import EditButtons from './EditButtons'
+import EditButtons from '../components/EditButtons'
+import { Link } from 'react-router-dom'
 
-export default function Cart() {
+export default function ShoppingCart() {
   const { cart, clearProductCart, getTotalCart } = useCart()
 
   const cartTotal = getTotalCart(cart)
   const totalArticles = cart.length
 
   return (
-    <div className='absolute right-0 top-0 w-[300px] bg-gray-800'>
+    <div className=''>
+      <Link to='/'>Volver</Link>
       <h1>Cart</h1>
 
       <ul>
@@ -19,11 +21,13 @@ export default function Cart() {
 
           return (
             <li key={item.id}>
-              <img src={item.thumbnail} alt={item.title} />
-              <p>Producto: {item.title}</p>
-              <p>Precio Total: {newPrice}</p>
-              <p>Cantidad: x{item.quantity}</p>
-              <EditButtons item={item} />
+              <Link to={`/article/${item.id}`}>
+                <img src={item.thumbnail} alt={item.title} />
+                <p>Producto: {item.title}</p>
+                <p>Precio Total: {newPrice}</p>
+                <p>Cantidad: x{item.quantity}</p>
+                <EditButtons item={item} />
+              </Link>
             </li>
           )
         })}
