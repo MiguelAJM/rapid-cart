@@ -31,7 +31,6 @@ export default function AllProductsPage() {
 
       <ul className='w-full grid my-8 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 px-1 md:gap-4 gap-y-5 md:gap-y-8 mb-24 md:mb-20'>
         {productsCart.map((product) => {
-          console.log(product.id)
           return <ProductsCard product={product} key={product.id} />
         })}
       </ul>
