@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import { toast } from 'sonner'
+import { AddedProduct, DeleteProduct } from '../components/Toasts'
 
 const CartContext = createContext()
 
@@ -26,6 +28,7 @@ export const CartProvider = ({ children }) => {
   // Agregar al carrito
   const addProductToCart = (product) => {
     const newProduct = cart.findIndex((item) => item.id === product.id)
+
     // Verificamos si hay un producto en el carrito y agregamos 1 unidades mas
     if (newProduct >= 0) {
       const newCart = structuredClone(cart)
@@ -36,6 +39,9 @@ export const CartProvider = ({ children }) => {
       }
       return setCart(newCart)
     }
+
+    toast.custom(() => <AddedProduct />)
+
     setCart((prevState) => [
       ...prevState,
       { ...product, quantity: 1, newPrice: 0 }
@@ -61,12 +67,14 @@ export const CartProvider = ({ children }) => {
         }
         return setCart(newCart)
       }
+
       setCart((prevState) => [...prevState, { quantity: 1, newPrice: 0 }])
     }
   }
 
   // Eliminar del carrito
   const deleteProductToCart = (product) => {
+    toast.custom(() => <DeleteProduct />)
     setCart(cart.filter((item) => item.id !== product.id))
   }
 

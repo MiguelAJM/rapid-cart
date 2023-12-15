@@ -23,6 +23,12 @@ dependencies:
   react-router-dom:
     specifier: 6.20.1
     version: 6.20.1(react-dom@18.2.0)(react@18.2.0)
+  react-swipeable-list:
+    specifier: ^1.9.3
+    version: 1.9.3
+  sonner:
+    specifier: ^1.2.4
+    version: 1.2.4(react-dom@18.2.0)(react@18.2.0)
   standard:
     specifier: 17.1.0
     version: 17.1.0
@@ -2514,6 +2520,10 @@ packages:
       react: 18.2.0
     dev: false
 
+  /react-swipeable-list@1.9.3:
+    resolution: {integrity: sha512-YinT0+Ww3SNJZaTVBGAN86tNL2cka5s4m8MkQfgp8kdoORuGaPoo+PemFK3kA3mb6vkSZc0IBCp6Ci3y1Er21Q==}
+    dev: false
+
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
@@ -2692,6 +2702,16 @@ packages:
       call-bind: 1.0.5
       get-intrinsic: 1.2.2
       object-inspect: 1.13.1
+    dev: false
+
+  /sonner@1.2.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-WGLP2QQnomgewaCTsK7YWiLcy5n1Yj83vsL5cP4zHMmpSkmFsCYTpQKhlXJrPE5kzjwbqCkCFXcOpbKc4vaUaA==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /source-map-js@1.0.2:

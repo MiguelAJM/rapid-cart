@@ -1,0 +1,23 @@
+export const categorys = [
+  { id: 1, category: 'all', name: 'All Categories' },
+  { id: 1, category: 'smartphones', name: 'Smartphones' },
+  { id: 2, category: 'laptops', name: 'Laptops' },
+  { id: 3, category: 'fragrances', name: 'Fragrances' },
+  { id: 4, category: 'skincare', name: 'Skincare' },
+  { id: 5, category: 'groceries', name: 'Groceries' },
+  { id: 6, category: 'home-decoration', name: 'Home Decoration' },
+  { id: 7, category: 'furniture', name: 'Furniture' },
+  { id: 8, category: 'tops', name: 'Tops' },
+  { id: 9, category: 'womens-dresses', name: 'Womens Dresses' },
+  { id: 10, category: 'womens-shoes', name: 'Womens Shoes' },
+  { id: 11, category: 'mens-shirts', name: 'Mens Shirts' },
+  { id: 12, category: 'mens-shoes', name: 'Mens Shoes' },
+  { id: 13, category: 'mens-watches', name: 'Mens Watches' },
+  { id: 14, category: 'womens-watches', name: 'Womens Watches' },
+  { id: 15, category: 'womens-bags', name: 'Womens Bags' },
+  { id: 16, category: 'womens-jewellery', name: 'Womens Jewellery' },
+  { id: 17, category: 'sunglasses', name: 'Sunglasses' },
+  { id: 18, category: 'automotive', name: 'Automotive' },
+  { id: 19, category: 'motorcycle', name: 'Motorcycle' },
+  { id: 20, category: 'lighting', name: 'Lighting' }
+]

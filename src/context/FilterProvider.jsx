@@ -21,6 +21,7 @@ export const FilterProvider = ({ children }) => {
     title: ''
   })
 
+  // Filtrar los datos
   const filterProducts = (product) => {
     return product.filter((item) => {
       return (
@@ -34,6 +35,7 @@ export const FilterProvider = ({ children }) => {
 
   const productsCart = filterProducts(products)
 
+  // Funciones del filtro
   const handleChangePrice = (e) => {
     setFilters((prevState) => ({ ...prevState, price: e.target.value }))
   }

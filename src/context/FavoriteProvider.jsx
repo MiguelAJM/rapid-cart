@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import { AddedFavProduct, DeleteFavProduct } from '../components/Toasts'
+import { toast } from 'sonner'
 
 const FavoriteContext = createContext()
 
@@ -38,6 +40,9 @@ export const FavoriteProvider = ({ children }) => {
       }
       return setFavoriteCart(newCart)
     }
+
+    toast.custom(() => <AddedFavProduct />)
+
     setFavoriteCart((prevState) => [
       ...prevState,
       { ...product, quantity: 1, newPrice: 0 }
@@ -63,6 +68,7 @@ export const FavoriteProvider = ({ children }) => {
         }
         return setFavoriteCart(newCart)
       }
+
       setFavoriteCart((prevState) => [
         ...prevState,
         { quantity: 1, newPrice: 0 }
@@ -72,6 +78,7 @@ export const FavoriteProvider = ({ children }) => {
 
   // Eliminar del carrito
   const deleteFavoriteToCart = (product) => {
+    toast.custom(() => <DeleteFavProduct />)
     setFavoriteCart(favorite.filter((item) => item.id !== product.id))
   }
 

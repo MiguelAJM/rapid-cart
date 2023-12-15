@@ -10,15 +10,15 @@ export default function EditButtons({ item }) {
     useCart()
 
   return (
-    <div>
+    <div className='flex gap-0.5'>
       <button onClick={() => addProductToCart(item)}>
-        <IconShoppingCartPlus />
+        <IconShoppingCartPlus size={24} className='text-green-500' />
       </button>
       <button onClick={() => decrementProductToCart(item)}>
-        <IconShoppingCartMinus />
+        <IconShoppingCartMinus size={24} />
       </button>
       <button onClick={() => deleteProductToCart(item)}>
-        <IconTrash />
+        <IconTrash size={24} className='text-red-500' />
       </button>
     </div>
   )

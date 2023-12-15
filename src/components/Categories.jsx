@@ -1,38 +1,42 @@
-import ItemsCard from '../cards/ItemsCard'
-import { useFilter } from '../context/FilterProvider'
+import CategoriesCard from '../cards/CategoriesCard'
 import { useNavigate } from 'react-router-dom'
+import { categorys } from '../mocks/categories'
 import { motion } from 'framer-motion'
 
-export default function Products() {
-  const { productsCart } = useFilter()
+export default function Categories() {
   const navigate = useNavigate()
 
   return (
-    <section className='w-full my-24 md:my-20 bg-white md:bg-transparent py-8 rounded-2xl'>
+    <section className='w-full my-24 md:my-32 mb-32'>
       <article className='flex flex-col gap-2 md:gap-4 text-center'>
         <h2 className='text-xl md:text-5xl font-medium uppercase'>
-          New Products
+          Categories
         </h2>
         <p className='text-gray-800/75 text-xs md:text-xl'>
-          Our latest new products collection
+          See all our list categories of different products
         </p>
       </article>
 
-      <ul className='w-full grid my-8 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 px-1 md:gap-4 gap-y-5 md:gap-y-8'>
-        {productsCart.slice(0, 8).map((product) => {
-          return <ItemsCard product={product} key={product.id} />
+      <motion.ul
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-2 gap-2 md:gap-4 my-8'
+      >
+        {categorys.slice(0, 12).map((category) => {
+          return <CategoriesCard category={category} key={category.id} />
         })}
-      </ul>
+      </motion.ul>
 
       <div className='w-full flex justify-center'>
         <motion.button
           whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
           whileTap={{ scale: 0.9, transition: { duration: 0.2 } }}
           transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-          onClick={() => navigate('/all-products')}
+          onClick={() => navigate('/all-categories')}
           className='bg-black px-8 md:px-16 py-2 md:py-4 rounded-full text-zinc-100 text-sm md:text-base'
         >
-          See All
+          More Categories
         </motion.button>
       </div>
     </section>
