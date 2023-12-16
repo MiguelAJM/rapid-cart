@@ -8,7 +8,7 @@ export default function ItemsCard({ product }) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className='w-full mx-auto bg-zinc-200 p-2 md:p-4 rounded-xl md:rounded-3xl col-span-1'
+      className='w-full mx-auto bg-zinc-200 md:bg-white p-2 md:p-4 rounded-xl md:rounded-3xl col-span-1'
       key={product.id}
     >
       <article className='relative aspect-square md:aspect-auto md:h-[375px]'>

@@ -8,7 +8,7 @@ import Error from '../elements/Error'
 
 export default function ProductsByCategoryPage() {
   const { categorie } = useParams()
-
+  const CATEGORY_NAME = categorie.replace('-', ' ')
   const URL_PRODUCT_BY_CATEGORIE = `https://dummyjson.com/products/category/${categorie}`
 
   const { status, article } = useData(URL_PRODUCT_BY_CATEGORIE)
@@ -34,12 +34,12 @@ export default function ProductsByCategoryPage() {
       }}
       className='relative p-3'
     >
-      <article className='w-full flex justify-between items-center gap-2 md:gap-4 mt-5 mb-8'>
+      <article className='flex justify-between items-center mt-4 md:bg-white px-5 py-7 md:rounded-2xl'>
         <button onClick={() => navigate(-1)}>
           <IconArrowBackUpDouble size={32} />
         </button>
-        <h2 className='text-xl md:text-5xl font-medium uppercase mr-16'>
-          {categorie}
+        <h2 className='text-xl md:text-5xl font-medium uppercase'>
+          {CATEGORY_NAME}
         </h2>
       </article>
 
