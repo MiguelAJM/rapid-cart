@@ -8,7 +8,7 @@ export default function Hero() {
   const navigate = useNavigate()
 
   return (
-    <section className='flex flex-col items-center gap-12 mt-8 md:my-16 relative w-full px-2 md:px-0'>
+    <section className='flex flex-col items-center gap-12 pt-8 md:my-16 relative w-full px-2 md:px-0'>
       <article className='flex flex-col gap-2 md:gap-4 text-center'>
         <h2 className='text-xl md:text-5xl font-medium uppercase'>
           Find Something Special Today

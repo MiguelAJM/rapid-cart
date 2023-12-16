@@ -37,7 +37,7 @@ export default function CartPage() {
         ease: 'easeInOut',
         repeatDelay: 1
       }}
-      className='relative p-3'
+      className='relative pt-8 pb-24 md:pt-0 md:pb-0 px-3'
     >
       <div>
         {cart.length > 0 ? (

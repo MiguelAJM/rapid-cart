@@ -10,7 +10,7 @@ export default function useData(id) {
       const data = await fetch(id)
       const res = await data.json()
       // Para testear los errors
-      // await new Promise(resolve => setTimeout(resolve, 10000))
+      // await new Promise(resolve => setTimeout(resolve, 100000))
       // throw new Error()
       setArticle(res)
 

@@ -39,9 +39,7 @@ export default function Articles() {
     : () => addProductToCart(article)
 
   if (status === 'pending' || status === 'idle') {
-    return (
-      <Loader />
-    )
+    return <Loader />
   }
 
   if (status === 'rejected') {
@@ -49,12 +47,9 @@ export default function Articles() {
   }
 
   return (
-    <section className='w-full h-full relative p-3'>
+    <section className='w-full relative pt-8 pb-24 md:pt-0 md:pb-0 px-3'>
       <article className='flex justify-between items-center mt-4 md:bg-white md:p-2 md:rounded-2xl'>
-        <button
-          className='md:p-4 rounded-full'
-          onClick={() => navigate(-1)}
-        >
+        <button className='md:p-4 rounded-full' onClick={() => navigate(-1)}>
           <IconArrowBack />
         </button>
         <h2 className='text-xl font-bold'>Shopping Cart</h2>

@@ -23,7 +23,7 @@ export default function Menu() {
 
   return (
     <>
-      <nav className='flex items-center container mx-auto justify-between py-0 md:py-8'>
+      <nav className='hidden md:flex items-center container mx-auto justify-between py-0 md:py-8'>
         <NavLink className='hidden md:flex items-center gap-2' to='/'>
           <IconShoppingBag className='text-red-500' size={32} />
           <h2 className='text-3xl text-center font-bold'>Rapid Cart</h2>
