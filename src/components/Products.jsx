@@ -1,10 +1,9 @@
 import ItemsCard from '../cards/ItemsCard'
-import { useFilter } from '../context/FilterProvider'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { products } from '../mocks/products.json'
 
 export default function Products() {
-  const { productsCart } = useFilter()
   const navigate = useNavigate()
 
   return (
@@ -19,7 +18,7 @@ export default function Products() {
       </article>
 
       <ul className='w-full grid my-8 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 px-1 md:gap-4 gap-y-5 md:gap-y-8'>
-        {productsCart.slice(0, 8).map((product) => {
+        {products.slice(0, 8).map((product) => {
           return <ItemsCard product={product} key={product.id} />
         })}
       </ul>

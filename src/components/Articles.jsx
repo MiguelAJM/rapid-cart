@@ -1,3 +1,7 @@
+import useData from '../hooks/useData'
+import ItemsCard from '../cards/ItemsCard'
+import Loader from '../elements/Loader'
+import Error from '../elements/Error'
 import {
   IconArrowBack,
   IconHeart,
@@ -10,18 +14,12 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartProvider'
 import { useFavorite } from '../context/FavoriteProvider'
 import { motion } from 'framer-motion'
-import { useFilter } from '../context/FilterProvider'
-import useData from '../hooks/useData'
-import ItemsCard from '../cards/ItemsCard'
-import Loader from '../elements/Loader'
-import Error from '../elements/Error'
+import { products } from '../mocks/products.json'
 
 export default function Articles() {
   const { id } = useParams()
   const API_URL = `https://dummyjson.com/products/${id}`
   const { status, article } = useData(API_URL)
-
-  const { productsCart } = useFilter()
 
   const { addProductToCart, deleteProductToCart, checkProductInCart } =
     useCart()
@@ -32,8 +30,6 @@ export default function Articles() {
   } = useFavorite()
 
   const navigate = useNavigate()
-
-  // const { modal } = useModal()
 
   const isProductInCart = checkProductInCart(article)
   const isFavoriteInCart = checkFavoriteInCart(article)
@@ -171,7 +167,7 @@ export default function Articles() {
           </article>
 
           <ul className='w-full grid my-8 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 px-1 md:gap-4 gap-y-5 md:gap-y-8'>
-            {productsCart.slice(0, 4).map((product) => {
+            {products.slice(0, 4).map((product) => {
               return <ItemsCard product={product} key={product.id} />
             })}
           </ul>
