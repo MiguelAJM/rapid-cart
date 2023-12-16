@@ -13,6 +13,8 @@ import { motion } from 'framer-motion'
 import { useFilter } from '../context/FilterProvider'
 import useData from '../hooks/useData'
 import ItemsCard from '../cards/ItemsCard'
+import Loader from '../elements/Loader'
+import Error from '../elements/Error'
 
 export default function Articles() {
   const { id } = useParams()
@@ -42,18 +44,12 @@ export default function Articles() {
 
   if (status === 'pending' || status === 'idle') {
     return (
-      <div>
-        <h2>Loading...</h2>
-      </div>
+      <Loader />
     )
   }
 
   if (status === 'rejected') {
-    return (
-      <div>
-        <h2>An ocurred a error</h2>
-      </div>
-    )
+    return <Error />
   }
 
   return (

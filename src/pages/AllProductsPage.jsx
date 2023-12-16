@@ -1,6 +1,6 @@
 import { useFilter } from '../context/FilterProvider'
 import { motion } from 'framer-motion'
-import Selector from '../components/Selector'
+import Selector from '../elements/Selector'
 import ProductsCard from '../cards/ProductsCard'
 
 export default function AllProductsPage() {

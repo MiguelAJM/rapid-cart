@@ -11,7 +11,7 @@ import { IconTrash, IconArrowBack } from '@tabler/icons-react'
 import { useCart } from '../context/CartProvider'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import NoItems from '../components/NoItems'
+import NoItems from '../elements/NoItems'
 import EmptyCart from '../assets/empty-cart.svg'
 
 export default function CartPage() {

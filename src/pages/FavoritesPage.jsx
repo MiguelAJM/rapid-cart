@@ -10,7 +10,7 @@ import {
 import 'react-swipeable-list/dist/styles.css'
 import FavoriteCard from '../cards/FavoriteCard'
 import { motion } from 'framer-motion'
-import NoItems from '../components/NoItems'
+import NoItems from '../elements/NoItems'
 import EmptyFavorites from '../assets/empty-favorites.svg'
 
 export default function FavoritesPage() {

@@ -9,6 +9,9 @@ export default function useData(id) {
       setStatus('pending')
       const data = await fetch(id)
       const res = await data.json()
+      // Para testear los errors
+      // await new Promise(resolve => setTimeout(resolve, 10000))
+      // throw new Error()
       setArticle(res)
 
       setStatus('succesfull')

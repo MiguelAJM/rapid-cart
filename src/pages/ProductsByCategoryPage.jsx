@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import useData from '../hooks/useData'
 import ProductsCard from '../cards/ProductsCard'
 import { IconArrowBackUpDouble } from '@tabler/icons-react'
+import Loader from '../elements/Loader'
+import Error from '../elements/Error'
 
 export default function ProductsByCategoryPage() {
   const { categorie } = useParams()
@@ -13,19 +15,11 @@ export default function ProductsByCategoryPage() {
   const navigate = useNavigate()
 
   if (status === 'pending' || status === 'idle') {
-    return (
-      <div>
-        <h2>Loading...</h2>
-      </div>
-    )
+    return <Loader />
   }
 
   if (status === 'rejected') {
-    return (
-      <div>
-        <h2>An ocurred a error</h2>
-      </div>
-    )
+    return <Error />
   }
 
   return (

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { toast } from 'sonner'
-import { AddedProduct, DeleteProduct } from '../components/Toasts'
+import { AddedProduct, DeleteProduct } from '../elements/Toasts'
 
 const CartContext = createContext()
 

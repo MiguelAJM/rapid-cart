@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { AddedFavProduct, DeleteFavProduct } from '../components/Toasts'
+import { AddedFavProduct, DeleteFavProduct } from '../elements/Toasts'
 import { toast } from 'sonner'
 
 const FavoriteContext = createContext()
