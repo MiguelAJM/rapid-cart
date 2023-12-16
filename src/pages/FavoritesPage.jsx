@@ -10,6 +10,8 @@ import {
 import 'react-swipeable-list/dist/styles.css'
 import FavoriteCard from '../cards/FavoriteCard'
 import { motion } from 'framer-motion'
+import NoItems from '../components/NoItems'
+import EmptyFavorites from '../assets/empty-favorites.svg'
 
 export default function FavoritesPage() {
   const { favorite, deleteFavoriteToCart, clearFavoriteCart, getTotalCart } =
@@ -40,42 +42,51 @@ export default function FavoritesPage() {
       }}
       className='relative p-3'
     >
-      <article className='flex justify-between items-center mt-4 md:bg-white md:p-2 md:rounded-2xl'>
-        <button className='md:p-4 rounded-full' onClick={() => navigate('/')}>
-          <IconArrowBack />
-        </button>
-        <h2 className='text-xl font-bold'>Favorites</h2>
-        <button className='md:p-4 rounded-full' onClick={clearFavoriteCart}>
-          <IconTrash className='text-red-400' />
-        </button>
-      </article>
-
-      <SwipeableList className=' md:bg-white rounded-xl my-12'>
-        {favorite.map((item) => {
-          return (
-            <SwipeableListItem
-              key={item.id}
-              destructive
-              trailingActions={trailingActions(item)}
+      {favorite.length > 0 ? (
+        <>
+          <article className='flex justify-between items-center mt-4 md:bg-white md:p-2 md:rounded-2xl'>
+            <button
+              className='md:p-4 rounded-full'
+              onClick={() => navigate('/')}
             >
-              <FavoriteCard item={item} />
-            </SwipeableListItem>
-          )
-        })}
-      </SwipeableList>
+              <IconArrowBack />
+            </button>
+            <h2 className='text-xl font-bold'>Favorites</h2>
+            <button className='md:p-4 rounded-full' onClick={clearFavoriteCart}>
+              <IconTrash className='text-red-400' />
+            </button>
+          </article>
 
-      <article className='flex justify-between items-center mt-4 md:bg-white md:p-4 md:rounded-2xl mb-20'>
-        <h2 className='text-sm font-bold'>
-          Items: <span>{totalFavoritesArticles}</span>
-        </h2>
-        <h2 className='text-sm font-bold'>
-          Total:{' '}
-          <span>
-            {totalFavorite}
-            <span className='text-gray-800/50 ml-1'>USD</span>
-          </span>
-        </h2>
-      </article>
+          <SwipeableList className=' md:bg-white rounded-xl my-12'>
+            {favorite.map((item) => {
+              return (
+                <SwipeableListItem
+                  key={item.id}
+                  destructive
+                  trailingActions={trailingActions(item)}
+                >
+                  <FavoriteCard item={item} />
+                </SwipeableListItem>
+              )
+            })}
+          </SwipeableList>
+
+          <article className='flex justify-between items-center mt-4 md:bg-white md:p-4 md:rounded-2xl mb-20'>
+            <h2 className='text-sm font-bold'>
+              Items: <span>{totalFavoritesArticles}</span>
+            </h2>
+            <h2 className='text-sm font-bold'>
+              Total:{' '}
+              <span>
+                {totalFavorite}
+                <span className='text-gray-800/50 ml-1'>USD</span>
+              </span>
+            </h2>
+          </article>
+        </>
+      ) : (
+        <NoItems message="Favorites products it's empty" img={EmptyFavorites} />
+      )}
     </motion.section>
   )
 }
