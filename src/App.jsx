@@ -17,7 +17,7 @@ export default function App() {
   return (
     <>
       <Menu />
-      <main className=' container mx-auto transition-all duration-300 ease-in-out font-roboto px-1 sm:px-0'>
+      <main className='container mx-auto transition-all duration-300 ease-in-out font-roboto px-1 sm:px-0'>
         <AnimatePresence mode='wait'>
           <Toaster position='top-center' richColors />
           <Routes key={location.pathname} location={location}>

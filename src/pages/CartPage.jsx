@@ -1,5 +1,8 @@
 import Checkout from '../components/Checkout'
 import CartCard from '../cards/CartCard'
+import NoItems from '../elements/NoItems'
+import EmptyCart from '../assets/empty-cart.svg'
+import ConfirmClearModal from '../modals/ConfirmClearModal'
 import {
   SwipeableList,
   SwipeableListItem,
@@ -10,12 +13,14 @@ import 'react-swipeable-list/dist/styles.css'
 import { IconTrash, IconArrowBack } from '@tabler/icons-react'
 import { useCart } from '../context/CartProvider'
 import { useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import NoItems from '../elements/NoItems'
-import EmptyCart from '../assets/empty-cart.svg'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useModal } from '../context/ModalProvider'
+import LoaderPaymentModal from '../modals/LoaderPaymentModal'
+import ConfirmBuyModal from '../modals/ConfirmBuyModal'
 
 export default function CartPage() {
-  const { cart, clearProductCart, deleteProductToCart } = useCart()
+  const { cart, deleteProductToCart } = useCart()
+  const { modal, handleChangeConfirm } = useModal()
 
   const navigate = useNavigate()
 
@@ -37,7 +42,7 @@ export default function CartPage() {
         ease: 'easeInOut',
         repeatDelay: 1
       }}
-      className='relative pt-8 pb-24 md:pt-0 md:pb-0 px-3'
+      className=' pt-8 pb-24 md:pt-0 md:pb-0 px-3'
     >
       <div>
         {cart.length > 0 ? (
@@ -51,8 +56,9 @@ export default function CartPage() {
               </button>
               <h2 className='text-xl font-bold'>Shopping Cart</h2>
               <button
+                data-value='delete-cart-items'
                 className='md:p-4 rounded-full'
-                onClick={clearProductCart}
+                onClick={handleChangeConfirm}
               >
                 <IconTrash className='text-red-400' />
               </button>
@@ -78,6 +84,17 @@ export default function CartPage() {
           <NoItems message="Your cart it's empty" img={EmptyCart} />
         )}
       </div>
+      <AnimatePresence>
+        {modal.confirm && (
+          <ConfirmClearModal message='Cart' value='delete-cart-items' />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {modal.loading && <LoaderPaymentModal />}
+      </AnimatePresence>
+
+      <AnimatePresence>{modal.buy && <ConfirmBuyModal />}</AnimatePresence>
     </motion.section>
   )
 }

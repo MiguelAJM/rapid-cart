@@ -1,14 +1,16 @@
 import { useCart } from '../context/CartProvider'
 import { motion } from 'framer-motion'
+import { useModal } from '../context/ModalProvider'
 
 export default function Checkout() {
   const { cart, getTotalCart } = useCart()
+  const { handleChangeConfirmBuy } = useModal()
 
   const cartTotal = getTotalCart(cart)
   const totalArticles = cart.length
 
   return (
-    <article className='w-full lg:w-[600px]'>
+    <article className='w-full lg:w-[500px]'>
       <div className='flex flex-col gap-12 bg-gradient-to-tr rounded-2xl md:p-8 md:bg-white'>
         <div className='flex justify-between items-center gap-4 py-4 px-4 md:py-0 md:px-0 bg-white rounded-2xl'>
           <input
@@ -52,12 +54,13 @@ export default function Checkout() {
           </div>
 
           <motion.button
+            onClick={handleChangeConfirmBuy}
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.9, transition: { duration: 0.2 } }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             className='bg-lime-400 mt-12 mb-12 md:mb-4 rounded-full py-4 font-bold'
           >
-            Proceed To Cheeckout
+            Proceed To Checkout
           </motion.button>
         </div>
       </div>

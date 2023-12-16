@@ -7,7 +7,7 @@ export default function Categories() {
   const navigate = useNavigate()
 
   return (
-    <section className='w-full my-24 md:my-32 mb-32'>
+    <section className='w-full pb-28'>
       <article className='flex flex-col gap-2 md:gap-4 text-center'>
         <h2 className='text-xl md:text-5xl font-medium uppercase'>
           Categories

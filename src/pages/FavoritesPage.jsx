@@ -1,3 +1,7 @@
+import NoItems from '../elements/NoItems'
+import FavoriteCard from '../cards/FavoriteCard'
+import EmptyFavorites from '../assets/empty-favorites.svg'
+import ConfirmClearModal from '../modals/ConfirmClearModal'
 import { IconTrash, IconArrowBack } from '@tabler/icons-react'
 import { useFavorite } from '../context/FavoriteProvider'
 import { useNavigate } from 'react-router-dom'
@@ -8,14 +12,12 @@ import {
   TrailingActions
 } from 'react-swipeable-list'
 import 'react-swipeable-list/dist/styles.css'
-import FavoriteCard from '../cards/FavoriteCard'
-import { motion } from 'framer-motion'
-import NoItems from '../elements/NoItems'
-import EmptyFavorites from '../assets/empty-favorites.svg'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useModal } from '../context/ModalProvider'
 
 export default function FavoritesPage() {
-  const { favorite, deleteFavoriteToCart, clearFavoriteCart, getTotalCart } =
-    useFavorite()
+  const { favorite, deleteFavoriteToCart, getTotalCart } = useFavorite()
+  const { modal, handleChangeConfirm } = useModal()
 
   const navigate = useNavigate()
 
@@ -52,7 +54,11 @@ export default function FavoritesPage() {
               <IconArrowBack />
             </button>
             <h2 className='text-xl font-bold'>Favorites</h2>
-            <button className='md:p-4 rounded-full' onClick={clearFavoriteCart}>
+            <button
+              data-value='delete-favorite-items'
+              className='md:p-4 rounded-full'
+              onClick={handleChangeConfirm}
+            >
               <IconTrash className='text-red-400' />
             </button>
           </article>
@@ -87,6 +93,15 @@ export default function FavoritesPage() {
       ) : (
         <NoItems message="Favorites products it's empty" img={EmptyFavorites} />
       )}
+
+      <AnimatePresence>
+        {modal.confirm && (
+          <ConfirmClearModal
+            message='Favorite Products'
+            value='delete-favorite-items'
+          />
+        )}
+      </AnimatePresence>
     </motion.section>
   )
 }

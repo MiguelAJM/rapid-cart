@@ -8,7 +8,7 @@ export const useFavorite = () => {
   const CONTEXT = useContext(FavoriteContext)
   if (!CONTEXT) {
     throw new Error(
-      'Necesitas envolver tu aplicacion con el provider: FavoriteProvider'
+      'You need to wrap the application in the provider: FavoriteProvider'
     )
   }
   return CONTEXT

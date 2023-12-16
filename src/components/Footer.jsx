@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className='hidden md:block w-full p-8 bg-black rounded-tr-xl rounded-tl-xl'>
+    <footer className='hidden md:block w-full p-8 bg-black rounded-tr-xl rounded-tl-xl z-0'>
       <div className='container mx-auto flex items-center justify-between'>
         <article className='text-lg text-zinc-100'>
           <h2 className='text-2xl font-bold'>Cart Rapid</h2>

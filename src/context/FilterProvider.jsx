@@ -7,7 +7,7 @@ export const useFilter = () => {
   const CONTEXT = useContext(FilterContext)
   if (!CONTEXT) {
     throw new Error(
-      'Necesitas envolver tu aplicacion con el provider: FilterProvider'
+      'You need to wrap the application in the provider: FilterProvider'
     )
   }
   return CONTEXT

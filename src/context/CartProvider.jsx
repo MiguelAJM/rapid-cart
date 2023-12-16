@@ -8,7 +8,7 @@ export const useCart = () => {
   const CONTEXT = useContext(CartContext)
   if (!CONTEXT) {
     throw new Error(
-      'Necesitas envolver tu aplicacion con el provider: CardProvider'
+      'You need to wrap the application in the provider: CardProvider'
     )
   }
   return CONTEXT
