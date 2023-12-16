@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 export default function useData(id) {
   const [status, setStatus] = useState('idle')
-  const [article, setArticle] = useState('')
+  const [article, setArticle] = useState([])
 
   const fetchData = async (id) => {
     try {

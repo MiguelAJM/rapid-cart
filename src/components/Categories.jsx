@@ -23,7 +23,7 @@ export default function Categories() {
         viewport={{ once: true }}
         className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-2 gap-2 md:gap-4 my-8'
       >
-        {categorys.slice(0, 12).map((category) => {
+        {categorys.slice(1, 13).map((category) => {
           return <CategoriesCard category={category} key={category.id} />
         })}
       </motion.ul>

@@ -61,7 +61,7 @@ export default function Articles() {
       <article className='flex justify-between items-center mt-4 md:bg-white md:p-2 md:rounded-2xl'>
         <button
           className='md:p-4 rounded-full'
-          onClick={() => navigate('/all-products')}
+          onClick={() => navigate(-1)}
         >
           <IconArrowBack />
         </button>
