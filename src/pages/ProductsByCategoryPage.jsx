@@ -34,7 +34,7 @@ export default function ProductsByCategoryPage() {
       }}
       className='relative p-3'
     >
-      <article className='flex justify-between items-center mt-4 md:bg-white px-5 py-7 md:rounded-2xl'>
+      <article className='flex justify-between items-center mt-4 md:bg-white px-5 md:py-7 md:rounded-2xl'>
         <button onClick={() => navigate(-1)}>
           <IconArrowBackUpDouble size={32} />
         </button>

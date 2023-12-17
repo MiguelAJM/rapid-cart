@@ -41,7 +41,7 @@ export default function CartPage() {
         ease: 'easeInOut',
         repeatDelay: 1
       }}
-      className=' pt-8 pb-24 md:pt-0 md:pb-0 px-3'
+      className='pt-8 pb-8 md:pt-0 md:pb-0 px-3'
     >
       <div>
         {cart.length > 0 ? (
