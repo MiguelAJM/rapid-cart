@@ -1,7 +1,7 @@
 import NoItems from '../elements/NoItems'
 import FavoriteCard from '../cards/FavoriteCard'
 import EmptyFavorites from '../assets/empty-favorites.svg'
-import ConfirmClearModal from '../modals/ConfirmClearModal'
+import ConfirmModal from '../modals/ConfirmModal'
 import { IconTrash, IconArrowBack } from '@tabler/icons-react'
 import { useFavorite } from '../context/FavoriteProvider'
 import { useNavigate } from 'react-router-dom'
@@ -96,8 +96,9 @@ export default function FavoritesPage() {
 
       <AnimatePresence>
         {modal.confirm && (
-          <ConfirmClearModal
-            message='Favorite Products'
+          <ConfirmModal
+            title='Do you want to remove?'
+            message="You're about to delete items from your favorite item(s)"
             value='delete-favorite-items'
           />
         )}

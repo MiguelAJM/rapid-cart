@@ -2,7 +2,8 @@ import Checkout from '../components/Checkout'
 import CartCard from '../cards/CartCard'
 import NoItems from '../elements/NoItems'
 import EmptyCart from '../assets/empty-cart.svg'
-import ConfirmClearModal from '../modals/ConfirmClearModal'
+import LoaderPaymentModal from '../modals/LoaderPaymentModal'
+import ConfirmModal from '../modals/ConfirmModal'
 import {
   SwipeableList,
   SwipeableListItem,
@@ -15,8 +16,6 @@ import { useCart } from '../context/CartProvider'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useModal } from '../context/ModalProvider'
-import LoaderPaymentModal from '../modals/LoaderPaymentModal'
-import ConfirmBuyModal from '../modals/ConfirmBuyModal'
 
 export default function CartPage() {
   const { cart, deleteProductToCart } = useCart()
@@ -86,7 +85,11 @@ export default function CartPage() {
       </div>
       <AnimatePresence>
         {modal.confirm && (
-          <ConfirmClearModal message='Cart' value='delete-cart-items' />
+          <ConfirmModal
+            title='Do you want to remove?'
+            message="You're about to delete items from your shopping cart"
+            value='delete-cart-items'
+          />
         )}
       </AnimatePresence>
 
@@ -94,7 +97,15 @@ export default function CartPage() {
         {modal.loading && <LoaderPaymentModal />}
       </AnimatePresence>
 
-      <AnimatePresence>{modal.buy && <ConfirmBuyModal />}</AnimatePresence>
+      <AnimatePresence>
+        {modal.buy && (
+          <ConfirmModal
+            title='Are you buy these items'
+            message='Are you sure you want to buy these items/s'
+            value='buy-cart-item'
+          />
+        )}
+      </AnimatePresence>
     </motion.section>
   )
 }

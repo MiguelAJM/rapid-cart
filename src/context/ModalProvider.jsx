@@ -44,7 +44,8 @@ export const ModalProvider = ({ children }) => {
     if (
       modal.checkout === true ||
       modal.confirm === true ||
-      modal.loading === true
+      modal.loading === true ||
+      modal.buy === true
     ) {
       const bodyId = document.getElementById('body')
       bodyId.style.overflow = 'hidden'
@@ -62,23 +63,22 @@ export const ModalProvider = ({ children }) => {
     setModal((prevState) => ({ ...prevState, confirm: !modal.confirm }))
   }
 
-  const handleChangeConfirmBuy = () => {
+  const handleChangeBuy = () => {
     setModal((prevState) => ({ ...prevState, buy: !modal.buy }))
   }
-
   const handleChangeLoading = () => {
     // Activar el modal
-    setModal((prevState) => ({ ...prevState, buy: false }))
+    setModal((prevState) => ({ ...prevState, confirm: false }))
     setModal((prevState) => ({ ...prevState, loading: true, content: false }))
 
-    // Desactivar el modal después de 5 segundos
+    // Desactivar el modal después de 3 segundos
     const timeoutLoading = setTimeout(() => {
       setModal((prevState) => ({ ...prevState, loading: false }))
       clearProductCart()
       toast.custom(() => <BuySuccessfull />)
     }, 3000)
 
-    // Activar el contenido después de 2.5 segundos
+    // Activar el contenido después de 1.5 segundos
     const timeoutContent = setTimeout(() => {
       setModal((prevState) => ({ ...prevState, content: true }))
     }, 1500)
@@ -94,11 +94,11 @@ export const ModalProvider = ({ children }) => {
     <ModalContext.Provider
       value={{
         modal,
-        handleChangeConfirm,
         setModal,
+        handleChangeConfirm,
         handleChangeCheckout,
         handleChangeLoading,
-        handleChangeConfirmBuy
+        handleChangeBuy
       }}
     >
       {children}
