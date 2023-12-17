@@ -7,6 +7,7 @@ import { FilterProvider } from './src/context/FilterProvider'
 import { FavoriteProvider } from './src/context/FavoriteProvider'
 import { BrowserRouter } from 'react-router-dom'
 import { ModalProvider } from './src/context/ModalProvider'
+import ScrollToTop from './src/components/ScrollToTop'
 
 const root = createRoot(document.getElementById('app'))
 root.render(
@@ -16,7 +17,9 @@ root.render(
         <CartProvider>
           <FavoriteProvider>
             <ModalProvider>
-              <App />
+              <ScrollToTop>
+                <App />
+              </ScrollToTop>
             </ModalProvider>
           </FavoriteProvider>
         </CartProvider>
