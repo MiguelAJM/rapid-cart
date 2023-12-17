@@ -1,13 +1,14 @@
+import MenuMobile from '../mobile-components/MenuMobile'
 import {
   IconShoppingBag,
   IconShoppingCartFilled,
   IconHeart,
-  IconSearch
+  IconSearch,
+  IconCategory
 } from '@tabler/icons-react'
 import { useFavorite } from '../context/FavoriteProvider'
 import { useCart } from '../context/CartProvider'
 import { NavLink } from 'react-router-dom'
-import MenuMobile from '../mobile-components/MenuMobile'
 
 export default function Menu() {
   const { cart } = useCart()
@@ -39,23 +40,32 @@ export default function Menu() {
 
         <ul className='hidden md:flex gap-5'>
           <li>
+            <NavLink to='/all-categories' className={IN_ALREADY_URL}>
+              <IconCategory size={24} />
+              <span className='hidden lg:block text-lg font-medium'>Categories</span>
+            </NavLink>
+          </li>
+
+          <li>
             <NavLink to='/all-products' className={IN_ALREADY_URL}>
               <IconSearch size={24} />
-              <span className='text-lg font-medium'>Search</span>
+              <span className='hidden lg:block text-lg font-medium'>Search</span>
             </NavLink>
           </li>
 
           <li>
             <NavLink to='/cart' className={IN_ALREADY_URL}>
               <IconShoppingBag size={24} />
-              <span className='text-lg font-medium'>Cart ({CART_PRODUCTS})</span>
+              <span className='hidden lg:block text-lg font-medium'>
+                Cart ({CART_PRODUCTS})
+              </span>
             </NavLink>
           </li>
 
           <li>
             <NavLink to='/favorites' className={IN_ALREADY_URL}>
               <IconHeart size={24} />
-              <span className='text-lg font-medium'>
+              <span className='hidden lg:block text-lg font-medium'>
                 Favorites ({FAVORITE_PRODUCTS})
               </span>
             </NavLink>

@@ -1,4 +1,4 @@
-import { IconShoppingBag, IconHeart, IconSearch, IconHome } from '@tabler/icons-react'
+import { IconShoppingBag, IconHeart, IconSearch, IconHome, IconCategory } from '@tabler/icons-react'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
@@ -18,6 +18,16 @@ export default function MenuMobile() {
         >
           <NavLink to='/' className={IN_ALREADY_URL}>
             <IconHome size={32} />
+          </NavLink>
+        </motion.li>
+
+        <motion.li
+          whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+          whileTap={{ scale: 0.8, transition: { duration: 0.2 } }}
+          transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+        >
+          <NavLink to='/all-categories' className={IN_ALREADY_URL}>
+            <IconCategory size={32} />
           </NavLink>
         </motion.li>
 
