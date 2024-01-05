@@ -18,8 +18,8 @@ export default function App() {
     <>
       <Menu />
       <main className='container mx-auto transition-all duration-300 ease-in-out font-roboto px-1 sm:px-0'>
+        <Toaster position='top-center' richColors />
         <AnimatePresence mode='wait'>
-          <Toaster position='top-center' richColors />
           <Routes key={location.pathname} location={location}>
             <Route path='/' element={<Home />} />
             <Route path='article/:id' element={<Articles />} />

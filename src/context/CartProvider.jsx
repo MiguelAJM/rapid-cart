@@ -48,7 +48,7 @@ export const CartProvider = ({ children }) => {
     ])
   }
 
-  // Eliminar del carrito
+  // Eliminar del carrito 1 x 1
   const decrementProductToCart = (product) => {
     const newProduct = cart.findIndex((item) => item.id === product.id)
 
