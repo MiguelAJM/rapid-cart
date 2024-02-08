@@ -1,4 +1,4 @@
-# Smile Notes
+# Rapid Cart
 
 Created with React, Tailwind, Framer Motion. Shop for items quickly and easily.
 
